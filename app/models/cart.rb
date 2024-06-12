@@ -22,3 +22,4 @@ class Cart < ApplicationRecord
     cart_items.destroy_all
   end
 end
+end

@@ -10,6 +10,20 @@ class OrdersController < ApplicationController
     end
   end
 
+  def show
+    @order = Order.find(params[:id])
+    @product_lists = @order.product_lists
+  end
+
+  current_cart.cart_items.each do |cart_item|
+    product_list = ProductList.new
+    product_list.order = @order
+    product_list.product_name = cart_item.product.title
+    product_list.product_price = cart_item.product.price
+    product_list.quantity = cart_item.quantity
+    product_list.save
+  end
+
   private
   def order_params
     params.require(:order).permit(:billing_name, :billing_address, :shipping_name, :shipping_address)

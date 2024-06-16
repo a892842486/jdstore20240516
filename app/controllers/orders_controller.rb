@@ -4,14 +4,14 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     if @order.save
-      redirect_to order_path(@order)
+      redirect_to order_path(@order.token)
     else
       render 'carts/checkout'
     end
   end
 
   def show
-    @order = Order.find(params[:id])
+    @order = Order.find_by_token(params[:id])
     @product_lists = @order.product_lists
   end
 

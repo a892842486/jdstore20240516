@@ -29,6 +29,7 @@ gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'letter_opener', group: :development
 
 
 # Use Redis adapter to run Action Cable in production

@@ -24,6 +24,9 @@ class OrdersController < ApplicationController
     product_list.save
   end
 
+  current_cart.clean!
+  OrderMailer.notify_order_placed(@order).deliver!
+
   def pay_with_alipay
     @order = Order.find_by_token(params[:id])
     @order.set_payment_with!("alipay")

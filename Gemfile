@@ -30,7 +30,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'letter_opener', group: :development
-
+gem 'aasm'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

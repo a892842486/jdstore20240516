@@ -2,6 +2,9 @@ class Admin::OrdersController < ApplicationController
   layout "admin"
   before_action :authenticate_user!
   before_action :admin_required
+  OrderMailer.notify_ship(@order).deliver!
+  OrderMailer.notify_cancel(@order).deliver!
+  
   def index
     @orders = Order.order("id DESC")
   end
